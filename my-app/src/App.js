@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -12,8 +12,7 @@ import Products from './pages/products';
 import Cart from './pages/cart';
 import Contact from './pages/contact';
 
-class App extends Component {
-  render(){
+const App = () => {
   return (
         <div>
           <Router>
@@ -27,7 +26,6 @@ class App extends Component {
               </Switch>    
           </Router>
         </div>
-  );
-}
+  )
 }
 export default App;

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import HeaderWCart from "../components/headerWCart";
 import ContactButton from "../components/contactButton";
 import ItemList from "../components/itemlist"
+//* react hooks*//
 
 const Products = () => {
+
+    const refreshPage = () =>{
+        window.location.reload(false);
+    }
+
     var Value = 299;
-    
+    const [products,setProducts]=useState({modern: false, classic: false, vintage: false, antic: false});
+    console.log(products);
+
+    const onProductChange = (event) =>{
+        setProducts(Object.assign({},products,{[event.target.name]:event.target.checked}));
+    }    
+
     return(
         <body>
     
@@ -17,13 +29,13 @@ const Products = () => {
             <div>
                 <h4>Show category:</h4>
                 <form action="" method="get">
-                    <input type="checkbox" name="modern" modern="2"></input>
+                    <input type="checkbox" name="modern" onChange={onProductChange} ></input>
                     <label for="modern">Modern  </label>
-                    <input type="checkbox" name="classic" classic="2"></input>
+                    <input type="checkbox" name="classic" onChange={onProductChange}></input>
                     <label for="classic">Classic  </label>
-                    <input type="checkbox" name="vintage" vintage="2"></input>
+                    <input type="checkbox" name="vintage" onChange={onProductChange}></input>
                     <label for="vintage">Vintage  </label>
-                    <input type="checkbox" name="antic" antic="2"></input>
+                    <input type="checkbox" name="antic" onChange={onProductChange}></input>
                     <label for="antic">Antic</label>
                 </form>
             </div>
@@ -44,9 +56,11 @@ const Products = () => {
                     <input type="checkbox" name="499" value="599"></input>
                     <label for="499">400 - 499</label>
             </div>
+            
+            <ItemList category={products}></ItemList>
+
         </div>
             
-            <ItemList price={Value}></ItemList>
             
 
             <footer><ContactButton/></footer>
