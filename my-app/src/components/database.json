@@ -1,0 +1,79 @@
+[ 
+    {
+        "key": 0,
+        "name": "White",
+        "price": 100,
+        "category": "Modern"
+    },
+
+    {
+        "key": 1,
+        "name": "Black",
+        "price": 120,
+        "category": "Modern"
+    },
+
+    {
+        "key": 2,
+        "name": "Green",
+        "price": 150,
+        "category": "Classic"
+    },
+
+    {
+        "key": 3,
+        "name": "Orange",
+        "price": 140,
+        "category": "Classic"
+    },
+
+    {
+        "key": 4,
+        "name": "Blue",
+        "price": 300,
+        "category": "Classic"
+    },
+
+    {
+        "key": 5,
+        "name": "Red",
+        "price": 90,
+        "category": "Vintage"
+    },
+
+    {
+        "key": 6,
+        "name": "Purple",
+        "price": 240,
+        "category": "Vintage"
+    },
+
+    {
+        "key": 7,
+        "name": "Magenta",
+        "price": 150,
+        "category": "Vintage"
+    },
+
+    {
+        "key": 8,
+        "name": "Brown",
+        "price": 430,
+        "category": "Antic"
+    },
+
+    {
+        "key": 9,
+        "name": "Grey",
+        "price": 190,
+        "category": "Antic"
+    },
+
+    {
+        "key": 10,
+        "name": "Yellow",
+        "price": 300,
+        "category": "Antic"
+    }
+
+]
