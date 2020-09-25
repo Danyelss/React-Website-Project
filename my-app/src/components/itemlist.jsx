@@ -15,21 +15,51 @@ import CartImg from "../components/images/cart.png";
 
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
-//                if( products.modern === false && products.classic === false && products.vintage === false && products.antic === false ){
-//                    ) && ( ( ( item.name === products.modern ) && products.modern ) || ( ( item.name === products.classic ) && products.classic ) || ( ( item.name === products.vintage ) && products.vintage ) || ( ( item.name === products.antic ) && products.antic ) )
-
-
-
 const ItemList = (props) => {
-    const products = props.category;
-    
+    const products = props.Category;
+    const prices = props.Price;
+    let min = 0;
+    let max = 0;
+
+    const doNth = () => {
+
+    }
+
+    switch(true){
+        case prices.all === true:
+            min = 0;
+            max = 499;
+            break;
+        case prices.p099 === true:
+            min = 0;
+            max = 99;
+            break;
+        case prices.p199 === true:
+            min = 100;
+            max = 199;
+            break;
+        case prices.p299 === true:
+            min = 200;
+            max = 299;
+            break;
+        case prices.p399 === true:
+            min = 300;
+            max = 399;
+            break;
+        case prices.p499 === true:
+            min = 400;
+            max = 499;
+            break;
+        default:
+            min = 0;
+            max = 499;
+    }
+
     return(
         <div>
             { Database.map( item => {
-                console.log((item.category==="modern")&&products.modern);
-                
 
-                if( products.modern === false && products.classic === false && products.vintage === false && products.antic === false ){
+                if( (products.modern === false && products.classic === false && products.vintage === false && products.antic === false) && ( item.price > min && item.price < max )){
                     return(
                         <div key={item.key} className="ProductSmallView">
                             <img src={images[item.key]} alt="Product"></img>
@@ -40,7 +70,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button type="button" onClick="" className="BuyCartButton">
+                                <button type="button" onClick={doNth} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
@@ -59,7 +89,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button type="button" onClick="" className="BuyCartButton">
+                                <button type="button" onClick={doNth} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>

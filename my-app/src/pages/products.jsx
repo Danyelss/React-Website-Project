@@ -3,24 +3,58 @@ import React, {useState} from 'react';
 import HeaderWCart from "../components/headerWCart";
 import ContactButton from "../components/contactButton";
 import ItemList from "../components/itemlist"
+
 //* react hooks*//
 
 const Products = () => {
+
+    const cbChange = (event) => {    // lasa doar o un checkbox checked
+        let cbs = document.getElementsByClassName("cbPrice");
+        for (let i = 0; i < cbs.length; i++) {
+            if( event.target.name !== cbs[i].name )
+                cbs[i].checked = false;
+        }
+    }
+
+    const defaultCheck = () => {  // default All prices check 
+        let ok = true;
+
+        let cbs = document.getElementsByClassName("cbPrice");
+        for( let i = 1; i < cbs.length; i++ )
+            if( cbs[i].checked === true )
+                ok = false;
+        
+        if( ok === true )
+            cbs[0].checked = true;
+    }
 
     const refreshPage = () =>{
         window.location.reload(false);
     }
 
-    var Value = 299;
     const [products,setProducts]=useState({modern: false, classic: false, vintage: false, antic: false});
-    console.log(products);
 
     const onProductChange = (event) =>{
+        for (const property in products ) {   // face false values din object cand checkbox e false
+            if( event.target.name !== products[property].name )
+                products[property] = false;
+        }
         setProducts(Object.assign({},products,{[event.target.name]:event.target.checked}));
-    }    
+    }   
+    
+    const [prices,setPrices]=useState({all: true, p099: false, p199: false, p299: false, p399: false, p499: false});
+
+    const onPriceChange = (event) =>{
+        cbChange(event); 
+        for (const property in prices) {   // face false values din object cand checkbox e false
+            if( event.target.name !== prices[property].name )
+                prices[property] = false;
+        }
+        setPrices(Object.assign({},prices,{[event.target.name]:event.target.checked}));
+    } 
 
     return(
-        <body>
+        <body onLoad = {defaultCheck} >
     
         <HeaderWCart>Sinks</HeaderWCart>
 
@@ -45,26 +79,27 @@ const Products = () => {
 
                 <p id></p>
 
-                <input type="checkbox" name="099" value="199" ></input>
+                    <input type="checkbox" id="defaultChecked" className="cbPrice" name="all" onChange={onPriceChange}></input>
+                    <label for="all">All  </label>
+                    <input type="checkbox" className="cbPrice" name="p099" onChange={onPriceChange}></input>
                     <label for="099">0 - 99  </label>
-                    <input type="checkbox" name="199" value="299"></input>
+                    <input type="checkbox" className="cbPrice" name="p199" onChange={onPriceChange}></input>
                     <label for="199">100 - 199  </label>
-                    <input type="checkbox" name="299" value="399"></input>
+                    <input type="checkbox" className="cbPrice" name="p299" onChange={onPriceChange}></input>
                     <label for="299">200 - 300  </label>
-                    <input type="checkbox" name="399" value="499"></input>
+                    <input type="checkbox" className="cbPrice" name="p399" onChange={onPriceChange}></input>
                     <label for="399">300 - 399  </label>
-                    <input type="checkbox" name="499" value="599"></input>
+                    <input type="checkbox" className="cbPrice" name="p499" onChange={onPriceChange}></input>
                     <label for="499">400 - 499</label>
             </div>
             
-            <ItemList category={products}></ItemList>
+            <ItemList Category={products} Price={prices}></ItemList>
 
         </div>
             
             
 
             <footer><ContactButton/></footer>
-
         </body>
     )
 }
