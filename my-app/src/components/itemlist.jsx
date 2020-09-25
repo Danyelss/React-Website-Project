@@ -12,6 +12,7 @@ import Orange from "../components/images/orange.jpg";
 import Purple from "../components/images/purple.jpg";
 import Brown from "../components/images/brown.jpg";
 import CartImg from "../components/images/cart.png";
+import BoughtItem from "../components/boughtItem";
 
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
@@ -21,8 +22,21 @@ const ItemList = (props) => {
     let min = 0;
     let max = 0;
 
-    const doNth = () => {
+    const buyItem = (item) => {
+        console.log(item);
+        //return(
+            
+        //<BoughtItem item={item}></BoughtItem>
+       // )
+    }
 
+    const passItem = (item) => {
+        let object = item;
+        console.log(object);
+        //return(
+            
+        //<BoughtItem item={item}></BoughtItem>
+       // )
     }
 
     switch(true){
@@ -70,7 +84,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button type="button" onClick={doNth} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={buyItem(item)} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
@@ -89,12 +103,12 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button type="button" onClick={doNth} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={buyItem(item)} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
                          </div>
-                    ) 
+                    )
                 }
             } )
             }
