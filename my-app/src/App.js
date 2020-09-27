@@ -13,6 +13,7 @@ import Cart from './pages/cart';
 import Contact from './pages/contact';
 
 const App = () => {
+
   return (
         <div>
           <Router>

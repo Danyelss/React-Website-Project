@@ -8,8 +8,16 @@ import ItemList from "../components/itemlist"
 
 const Products = () => {
 
-    const cbChange = (event) => {    // lasa doar o un checkbox checked
+    const cbChangePrice = (event) => {    // lasa doar o un checkbox checked pt price
         let cbs = document.getElementsByClassName("cbPrice");
+        for (let i = 0; i < cbs.length; i++) {
+            if( event.target.name !== cbs[i].name )
+                cbs[i].checked = false;
+        }
+    }
+
+    const cbChangeCategory = (event) => {    // lasa doar o un checkbox checked pt categorie
+        let cbs = document.getElementsByClassName("cbCategory");
         for (let i = 0; i < cbs.length; i++) {
             if( event.target.name !== cbs[i].name )
                 cbs[i].checked = false;
@@ -35,6 +43,7 @@ const Products = () => {
     const [products,setProducts]=useState({modern: false, classic: false, vintage: false, antic: false});
 
     const onProductChange = (event) =>{
+        cbChangeCategory(event); 
         for (const property in products ) {   // face false values din object cand checkbox e false
             if( event.target.name !== products[property].name )
                 products[property] = false;
@@ -45,7 +54,7 @@ const Products = () => {
     const [prices,setPrices]=useState({all: true, p099: false, p199: false, p299: false, p399: false, p499: false});
 
     const onPriceChange = (event) =>{
-        cbChange(event); 
+        cbChangePrice(event); 
         for (const property in prices) {   // face false values din object cand checkbox e false
             if( event.target.name !== prices[property].name )
                 prices[property] = false;
@@ -63,13 +72,13 @@ const Products = () => {
             <div>
                 <h4>Show category:</h4>
                 <form action="" method="get">
-                    <input type="checkbox" name="modern" onChange={onProductChange} ></input>
+                    <input type="checkbox" name="modern" className="cbCategory" onChange={onProductChange} ></input>
                     <label for="modern">Modern  </label>
-                    <input type="checkbox" name="classic" onChange={onProductChange}></input>
+                    <input type="checkbox" name="classic" className="cbCategory" onChange={onProductChange}></input>
                     <label for="classic">Classic  </label>
-                    <input type="checkbox" name="vintage" onChange={onProductChange}></input>
+                    <input type="checkbox" name="vintage" className="cbCategory" onChange={onProductChange}></input>
                     <label for="vintage">Vintage  </label>
-                    <input type="checkbox" name="antic" onChange={onProductChange}></input>
+                    <input type="checkbox" name="antic" className="cbCategory" onChange={onProductChange}></input>
                     <label for="antic">Antic</label>
                 </form>
             </div>

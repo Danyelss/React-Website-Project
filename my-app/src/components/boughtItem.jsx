@@ -11,11 +11,11 @@ import Magenta from "../components/images/magenta.jpg";
 import Orange from "../components/images/orange.jpg";
 import Purple from "../components/images/purple.jpg";
 import Brown from "../components/images/brown.jpg";
-import CartImg from "../components/images/cart.png";
 
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
 const BoughtItem = (props) =>{
+    console.log(props.item);
     return(
         <div></div>
     )

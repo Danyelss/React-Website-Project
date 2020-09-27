@@ -16,28 +16,16 @@ import BoughtItem from "../components/boughtItem";
 
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
+//let selectedItem = new Array(11).fill("0");
+//selectedItem = localStorage.getItem("SelectedItemsA");
+//console.log(selectedItem);
+
+
 const ItemList = (props) => {
     const products = props.Category;
     const prices = props.Price;
     let min = 0;
     let max = 0;
-
-    const buyItem = (item) => {
-        console.log(item);
-        //return(
-            
-        //<BoughtItem item={item}></BoughtItem>
-       // )
-    }
-
-    const passItem = (item) => {
-        let object = item;
-        console.log(object);
-        //return(
-            
-        //<BoughtItem item={item}></BoughtItem>
-       // )
-    }
 
     switch(true){
         case prices.all === true:
@@ -70,8 +58,26 @@ const ItemList = (props) => {
     }
 
     return(
-        <div>
+        <div >
             { Database.map( item => {
+                
+                const test = () => {
+                    alert("Item added.");
+
+                    let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
+
+                    let backToData = JSON.parse(itemsObject_serialized);
+
+                    backToData.id[item.key] = backToData.id[item.key] + 1;
+
+                    localStorage.setItem( "SelectedItemStorage", JSON.stringify(backToData) );
+
+                    console.log(localStorage.getItem("SelectedItemStorage"));
+
+                    return(
+                        <BoughtItem item={item}></BoughtItem>
+                    )
+                }
 
                 if( (products.modern === false && products.classic === false && products.vintage === false && products.antic === false) && ( item.price > min && item.price < max )){
                     return(
@@ -84,7 +90,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button id={item.key} type="button" onClick={buyItem(item)} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={test} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
@@ -103,7 +109,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button id={item.key} type="button" onClick={buyItem(item)} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={test} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
