@@ -60,9 +60,9 @@ const ItemList = (props) => {
     return(
         <div >
             { Database.map( item => {
-                
+
                 const test = () => {
-                    alert("Item added.");
+                    alert("Item added to cart.");
 
                     let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
 
@@ -71,8 +71,6 @@ const ItemList = (props) => {
                     backToData.id[item.key] = backToData.id[item.key] + 1;
 
                     localStorage.setItem( "SelectedItemStorage", JSON.stringify(backToData) );
-
-                    console.log(localStorage.getItem("SelectedItemStorage"));
 
                     return(
                         <BoughtItem item={item}></BoughtItem>

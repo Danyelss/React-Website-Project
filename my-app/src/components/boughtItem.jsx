@@ -15,6 +15,13 @@ import Brown from "../components/images/brown.jpg";
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
 const BoughtItem = (props) =>{
+
+    let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
+
+    let backToData = JSON.parse(itemsObject_serialized);
+
+    localStorage.setItem( "SelectedItemStorage", JSON.stringify(backToData) );
+
     console.log(props.item);
     return(
         <div></div>

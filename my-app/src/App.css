@@ -276,3 +276,63 @@ input[type=submit]:hover {
    background-color: white;
    padding: 20px;
 }
+
+/* Cart products display
+*/
+
+.CartBody{
+  position: relative;
+  left: 0%;
+  right: 20%;
+  width: 80%;
+  display: inline-flex;
+}
+
+.CartProductsContainer{
+  position: relative;
+  left: 0%;
+  right:20%;
+  width: 80%;
+}
+
+.CartItemContainer{
+  height: 34vh;
+  width: 100%;
+  padding: 0.5vh;
+  margin-bottom: 1vh;
+  display: inline-flex;
+  border: 1px solid  #373737;
+   border-radius: 0;
+}
+
+.CartImageContainer{
+  width: 27%;
+  height: 34vh;
+  display: inline-block;
+}
+
+.CartQuantityAddRemoveContainer{
+  width: 73%;
+  margin-left: 1vh;
+  height: 32.7vh;
+  display: block;
+  border: 1px solid  #373737;
+  display: inline;
+}
+
+.CartSumPayContainer{
+  position: relative;
+  width: 20%;
+  height: 20vh;
+  margin-left: 1vh;
+  right: 0%;
+  border: 1px solid  #373737;
+  display: inline-block;
+}
+
+
+
+.test{
+  width: 10%;
+  display: inline;
+}
