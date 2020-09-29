@@ -1,10 +1,15 @@
 import React from 'react';
 
-const sumPayment = (props) => {
+const sumPayment = () => {
+    let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
+
+    let backToData = JSON.parse(itemsObject_serialized);
+
     return(
         <div>
+            <p>{backToData.total} RON</p>
             <a href='/payment'>
-                <button className="ContactButton">Contact</button>
+                <button className="ContactButton">Proceed to payment</button>
             </a>
         </div>
     )

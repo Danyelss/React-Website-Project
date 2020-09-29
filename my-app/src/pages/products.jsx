@@ -36,10 +36,6 @@ const Products = () => {
             cbs[0].checked = true;
     }
 
-    const refreshPage = () =>{
-        window.location.reload(false);
-    }
-
     const [products,setProducts]=useState({modern: false, classic: false, vintage: false, antic: false});
 
     const onProductChange = (event) =>{

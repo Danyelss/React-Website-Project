@@ -1,4 +1,4 @@
-import React, {useState, useEffect}  from 'react';
+import React, {useState}  from 'react';
 import Database from "../components/database.json";
 import White from "../components/images/white.jpg";
 import Yellow from "../components/images/yellow.jpg";
@@ -25,7 +25,7 @@ const BoughtItem = () =>{
     const [number, setNumber] = useState( backToData );
 
     return(
-        <div onLoad={setTotal}>
+        <div>
             { Database.map( item => {
 
                 const MinusItem = (event) => {
@@ -50,9 +50,7 @@ const BoughtItem = () =>{
                 }
 
                 const setTotal = (event) => {
-                    setNumber( Object.assign({},number,{[event.target.id]: number.total  }));
                     localStorage.setItem( "SelectedItemStorage", JSON.stringify(number) );
-
 
                 }
 
