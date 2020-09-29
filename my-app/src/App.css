@@ -317,7 +317,6 @@ input[type=submit]:hover {
   height: 32.7vh;
   display: block;
   border: 1px solid  #373737;
-  display: inline;
 }
 
 .CartSumPayContainer{
@@ -330,9 +329,7 @@ input[type=submit]:hover {
   display: inline-block;
 }
 
-
-
-.test{
-  width: 10%;
-  display: inline;
+p.inLine{
+  display: inline-block;
+  margin: 1vh;
 }

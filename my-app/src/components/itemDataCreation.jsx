@@ -8,13 +8,13 @@ const itemStorageCreation = () =>{
     
     let itemsObject = {
         name: "Selected Items by customer",
-        id: selectedItems
+        id: selectedItems,
+        total: 0
     } 
 
     console.log(itemsObject);
 
     let itemsObject_serialized = JSON.stringify(itemsObject);
-    console.log(itemsObject_serialized);
 
     localStorage.setItem("SelectedItemStorage", itemsObject_serialized );
     return(

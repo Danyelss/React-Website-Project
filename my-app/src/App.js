@@ -11,6 +11,7 @@ import NotFoundPage from './pages/404';
 import Products from './pages/products';
 import Cart from './pages/cart';
 import Contact from './pages/contact';
+import Payment from './pages/payment';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
               <Route exact path="/products" component={Products}></Route>
               <Route exact path="/cart" component={Cart}></Route>
               <Route exact path="/contact" component={Contact}></Route>
+              <Route exact path="/payment" component={Payment}></Route>
               <Redirect to="/404"></Redirect>
               </Switch>    
           </Router>

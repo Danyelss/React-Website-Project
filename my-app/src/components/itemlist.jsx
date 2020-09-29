@@ -16,11 +16,6 @@ import BoughtItem from "../components/boughtItem";
 
 let images = [ White, Black, Green, Orange, Blue, Red, Purple, Magenta, Brown, Grey, Yellow ];
 
-//let selectedItem = new Array(11).fill("0");
-//selectedItem = localStorage.getItem("SelectedItemsA");
-//console.log(selectedItem);
-
-
 const ItemList = (props) => {
     const products = props.Category;
     const prices = props.Price;
@@ -61,7 +56,7 @@ const ItemList = (props) => {
         <div >
             { Database.map( item => {
 
-                const test = () => {
+                const addToCart = () => {
                     alert("Item added to cart.");
 
                     let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
@@ -88,7 +83,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button id={item.key} type="button" onClick={test} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={addToCart} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
@@ -107,7 +102,7 @@ const ItemList = (props) => {
 
                             <div className="PriceBuyContainter">
                                 <h3> { item.price } RON </h3>
-                                <button id={item.key} type="button" onClick={test} className="BuyCartButton">
+                                <button id={item.key} type="button" onClick={addToCart} className="BuyCartButton">
                                     <img src={CartImg} className="CartImgIcon" alt="Buy Cart Icon"></img>
                                 </button>
                             </div>
