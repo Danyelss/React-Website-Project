@@ -3,6 +3,7 @@ import HeaderWCart from '../components/headerWCart';
 import ContactButton from "../components/contactButton";
 import BoughtItem from '../components/boughtItem';
 import SumPayment from '../components/sumPayment';
+import PriceContextProvider from '../contexts/PriceContext';
 
 const Cart = () => {
     return(
@@ -12,6 +13,8 @@ const Cart = () => {
             <div className="GeneralPageBody">
             
             <div className="CartBody">
+
+                <PriceContextProvider>
             
                 <div className="CartProductsContainer">
 
@@ -22,6 +25,8 @@ const Cart = () => {
                 <div className="CartSumPayContainer">
                     <SumPayment/>
                 </div>
+
+                </PriceContextProvider>
 
             </div>
 

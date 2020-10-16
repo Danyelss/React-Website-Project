@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { PriceContext } from '../contexts/PriceContext';
 
-const sumPayment = () => {
-    let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
+class sumPayment extends Component {
+    //let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
 
-    let backToData = JSON.parse(itemsObject_serialized);
+   // let backToData = JSON.parse(itemsObject_serialized);
 
-    return(
-        <div>
-            <p>{backToData.total} RON</p>
-            <a href='/payment'>
-                <button className="ContactButton">Proceed to payment</button>
-            </a>
-        </div>
-    )
+    static contextType = PriceContext;
+
+    render() {
+        console.log(this.context.price)
+        return(
+            <div>
+                <p>{this.context.price} RON</p>
+                <a href='/payment'>
+                    <button className="ContactButton">Proceed to payment</button>
+                </a>
+            </div>
+        )
+    }
 }
 
 export default sumPayment;
