@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { PriceContext } from '../contexts/PriceContext';
+import React, { Fragment } from 'react';
+import PriceContext from '../contexts/PriceContext';
 
-class sumPayment extends Component {
-    //let itemsObject_serialized = localStorage.getItem("SelectedItemStorage");
-
-   // let backToData = JSON.parse(itemsObject_serialized);
-
-    static contextType = PriceContext;
-
-    render() {
-        console.log(this.context.price)
-        return(
-            <div>
-                <p>{this.context.price} RON</p>
-                <a href='/payment'>
-                    <button className="ContactButton">Proceed to payment</button>
-                </a>
-            </div>
-        )
-    }
+const sumPayment = () => {
+    return(
+    <PriceContext.Consumer>
+     {context => (
+            <Fragment>
+                <h4>Cars:</h4>
+                {Object.keys(context.cars).map(carID => (
+                    <Car
+                        key={carID}
+                        name={context.cars[carID].name}
+                        price={context.cars[carID].price}
+                        incrementPrice={() => context.incrementPrice(carID)}
+                        decrementPrice={() => context.decrementPrice(carID)}
+                    />
+                ))}
+            </Fragment>
+        )}
+    </PriceContext.Consumer>
+    );
 }
 
 export default sumPayment;

@@ -1,4 +1,4 @@
-import React, {Component, useState}  from 'react';
+import React, { useState }  from 'react';
 import Database from "../components/database.json";
 import White from "../components/images/white.jpg";
 import Yellow from "../components/images/yellow.jpg";
