@@ -12,6 +12,8 @@ class PriceContextProvider extends Component {
             car003: { name: 'Mercedes', price: 200 }
         }
     };
+
+    render() {
         return (
             <PriceContext.Provider
                 value={{
@@ -35,6 +37,7 @@ class PriceContextProvider extends Component {
                 {this.props.children}
             </PriceContext.Provider>
         );
+    }
 }
 
 export default PriceContextProvider;
