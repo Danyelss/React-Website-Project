@@ -1,23 +1,8 @@
 import React, { createContext, useState } from 'react';
 import { Component } from 'react';
 import PriceContext from '../contexts/PriceContext';
-
-const Car = props => (
-    <Fragment>
-        <h4>Cars:</h4>
-        {/* Finally we can use data */}
-        {Object.keys(props.cars).map(carID => (
-            <Car
-                key={carID}
-                name={props.cars[carID].name}
-                price={props.cars[carID].price}
-                incrementPrice={() => props.incrementCarPrice(carID)}
-                decrementPrice={() => props.decrementCarPrice(carID)}
-            />
-        ))}
-    </Fragment>
-);
-
+import Car from '../components/Car';
+import Cars from '../components/Cars';
 
 class PriceContextProvider extends Component {
     state = {
@@ -27,8 +12,6 @@ class PriceContextProvider extends Component {
             car003: { name: 'Mercedes', price: 200 }
         }
     };
-
-    render() {
         return (
             <PriceContext.Provider
                 value={{
@@ -52,7 +35,6 @@ class PriceContextProvider extends Component {
                 {this.props.children}
             </PriceContext.Provider>
         );
-    }
 }
 
 export default PriceContextProvider;
